@@ -1,0 +1,23 @@
+---
+title: "Interactive Map with Leaflet"
+author: "Belmouidi Mohamed"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Welcome to My Interactive Map Page
+
+This webpage was created on `r Sys.Date()` and features a map created using the **Leaflet** package in R.
+
+## Explore the Map Below
+
+```{r leaflet-map, echo=FALSE}
+library(leaflet)
+
+# Create a basic Leaflet map
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap tiles
+  setView(lng = -7.62, lat = 33.57, zoom = 6) %>%  # Center on Morocco
+  addMarkers(lng = -7.62, lat = 33.57, popup = "This is Marrakech, Morocco!") %>%
+  addCircles(lng = -5.0, lat = 34.03, radius = 50000, popup = "This is Fes, Morocco!")
+  
